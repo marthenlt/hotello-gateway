@@ -1,0 +1,44 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myCleanerLabel">Create or edit a Cleaner</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.cleaner.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.cleaner.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_cleanerName">Cleaner Name</label>
+            <input type="text" class="form-control" name="cleanerName" id="field_cleanerName"
+                    ng-model="vm.cleaner.cleanerName"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_floorPreferance">Floor Preferance</label>
+            <input type="number" class="form-control" name="floorPreferance" id="field_floorPreferance"
+                    ng-model="vm.cleaner.floorPreferance"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_phoneNo">Phone No</label>
+            <input type="text" class="form-control" name="phoneNo" id="field_phoneNo"
+                    ng-model="vm.cleaner.phoneNo"
+                    />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

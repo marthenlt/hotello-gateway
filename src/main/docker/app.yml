@@ -1,0 +1,39 @@
+#-------------------------------------------------------------------------------
+# Note for using the rate-limiting:
+#   The comment part won't be copied if you use the subgenerator docker-compose
+#   you have to manually copy it
+#-------------------------------------------------------------------------------
+version: '2'
+services:
+    housekeepingui-app:
+        image: housekeepingui
+        environment:
+            - SPRING_PROFILES_ACTIVE=prod,swagger
+            - SPRING_CLOUD_CONFIG_URI=http://admin:$${jhipster.registry.password}@jhipster-registry:8761/config
+            - SPRING_DATA_MONGODB_URI=mongodb://housekeepingui-mongodb:27017
+            - SPRING_DATA_MONGODB_DATABASE=housekeepingui
+            - SPRING_DATA_CASSANDRA_CONTACTPOINTS=housekeepingui-cassandra
+            - JHIPSTER_SLEEP=30 # gives time for the Cassandra cluster to start and execute the migration scripts
+        ports:
+            - 8080:8080
+    housekeepingui-mongodb:
+        extends:
+            file: mongodb.yml
+            service: housekeepingui-mongodb
+    # Uncomment to have Cassandra working with the gateway
+    # housekeepingui-cassandra:
+    #     extends:
+    #         file: cassandra-cluster.yml
+    #         service: housekeepingui-cassandra
+    # housekeepingui-cassandra-migration:
+    #     extends:
+    #         file: cassandra-migration.yml
+    #         service: housekeepingui-cassandra-migration
+    #     environment:
+    #         - CREATE_KEYSPACE_SCRIPT=create-keyspace-prod.cql
+    jhipster-registry:
+        extends:
+            file: jhipster-registry.yml
+            service: jhipster-registry
+        environment:
+            - SPRING_CLOUD_CONFIG_SERVER_NATIVE_SEARCH_LOCATIONS=file:./central-config/docker-config/

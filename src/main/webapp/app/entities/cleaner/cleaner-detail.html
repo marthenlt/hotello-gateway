@@ -1,0 +1,31 @@
+
+<div>
+    <h2><span>Cleaner</span> {{vm.cleaner.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Cleaner Name</span></dt>
+        <dd>
+            <span>{{vm.cleaner.cleanerName}}</span>
+        </dd>
+        <dt><span>Floor Preferance</span></dt>
+        <dd>
+            <span>{{vm.cleaner.floorPreferance}}</span>
+        </dd>
+        <dt><span>Phone No</span></dt>
+        <dd>
+            <span>{{vm.cleaner.phoneNo}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="cleaner-detail.edit({id:vm.cleaner.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down"> Edit</span>
+    </button>
+</div>

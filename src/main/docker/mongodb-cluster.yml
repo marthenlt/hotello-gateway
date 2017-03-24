@@ -1,0 +1,16 @@
+version: '2'
+services:
+    housekeepingui-mongodb:
+        image: mongo:3.2.10
+        ports:
+            - "27017:27017"
+        command: mongos --configdb housekeepingui-mongodb-config
+    housekeepingui-mongodb-node:
+        build:
+            context: .
+            dockerfile: mongodb/MongoDB.Dockerfile
+        command: mongod --replSet rs1 --noprealloc --smallfiles
+    housekeepingui-mongodb-config:
+        image: mongo:3.2.10
+        container_name: housekeepingui-mongodb-config
+        command: mongod --noprealloc --smallfiles --configsvr --dbpath /data/db
