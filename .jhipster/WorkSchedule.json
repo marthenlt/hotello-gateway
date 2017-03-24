@@ -7,15 +7,15 @@
             "fieldType": "LocalDate"
         },
         {
-            "fieldName": "roomNo",
-            "fieldType": "String"
-        },
-        {
-            "fieldName": "cleanerName",
-            "fieldType": "String"
-        },
-        {
             "fieldName": "desc",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "rooms",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "cleaners",
             "fieldType": "String"
         }
     ],

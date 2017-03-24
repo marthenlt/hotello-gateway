@@ -15,24 +15,25 @@
     </div>
     <br/>
     <div class="table-responsive">
+
         <table class="jh-table table table-striped">
             <thead>
                 <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
-                    <th jh-sort-by="id"><span>ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <!--<th jh-sort-by="id"><span>ID</span> <span class="glyphicon glyphicon-sort"></span></th>-->
                     <th jh-sort-by="scheduleDate"><span>Schedule Date</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="roomNo"><span>Room No</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="cleanerName"><span>Cleaner Name</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="desc"><span>Desc</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="rooms"><span>Rooms</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="cleaners"><span>Cleaners</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="workSchedule in vm.workSchedules track by workSchedule.id">
-                    <td><a ui-sref="work-schedule-detail({id:workSchedule.id})">{{workSchedule.id}}</a></td>
+                    <!--<td><a ui-sref="work-schedule-detail({id:workSchedule.id})">{{workSchedule.id}}</a></td>-->
                         <td>{{workSchedule.scheduleDate | date:'mediumDate'}}</td>
-                    <td>{{workSchedule.roomNo}}</td>
-                    <td>{{workSchedule.cleanerName}}</td>
                     <td>{{workSchedule.desc}}</td>
+                    <td>{{workSchedule.rooms}}</td>
+                    <td>{{workSchedule.cleaners}}</td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"

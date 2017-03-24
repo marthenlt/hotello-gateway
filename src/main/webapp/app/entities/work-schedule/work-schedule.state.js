@@ -116,9 +116,9 @@
                         entity: function () {
                             return {
                                 scheduleDate: null,
-                                roomNo: null,
-                                cleanerName: null,
                                 desc: null,
+                                rooms: null,
+                                cleaners: null,
                                 id: null
                             };
                         }
