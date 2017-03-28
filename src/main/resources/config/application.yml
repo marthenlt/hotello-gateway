@@ -90,7 +90,7 @@ jhipster:
         #allow-credentials: true
         #max-age: 1800
     mail:
-        from: housekeepingui@192.168.25.128
+        from: housekeepingui@localhost
     swagger:
         default-include-pattern: /api/.*
         title: housekeepingui API
